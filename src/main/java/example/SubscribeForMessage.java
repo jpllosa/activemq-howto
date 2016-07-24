@@ -39,6 +39,7 @@ public class SubscribeForMessage {
 		MessageConsumer consumer = session.createDurableSubscriber(topic, "emanon");
 		connection.start();
 
+		System.out.println("subscribed, waiting for messages...");
 		Message message = consumer.receive();
 		if (message instanceof TextMessage) {
 			System.out.println("visit: " + ((TextMessage) message).getText());
